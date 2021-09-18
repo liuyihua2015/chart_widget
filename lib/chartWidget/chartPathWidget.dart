@@ -145,7 +145,7 @@ class ChartPathWidget extends CustomPainter {
       );
       double x = pairData.first.toDouble();
       double y = pairData.last.toDouble();
-      // print('_firstPath -- y:${y} -- ${min} -- ${max}');
+      // print('_firstPath ${dataList[i].value} -- y:${y} -- ${min} -- ${max}');
 
       if (data.value == 0) {
         _firstPath.moveTo(x, y);
@@ -279,7 +279,7 @@ class ChartPathWidget extends CustomPainter {
   ///获取相对于视图的y值
   double getRelativePosition(double value) {
     //内矩形高度减去数据实际值的实际像素大小，再加上顶部空白的距离
-    return value < 0
+    return value <= 0
         ? 0
         : innerRect.height - value / maxYValue * innerRect.height + paddingTop;
   }
